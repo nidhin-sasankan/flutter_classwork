@@ -12,9 +12,10 @@ class Registration extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset : false,
         appBar: AppBar(
           title: Text("Register"),
-          backgroundColor: Colors.deepOrangeAccent,
+          backgroundColor: Colors.red,
         ),
         body: Center(
           child: Column(
@@ -22,7 +23,7 @@ class Registration extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: Text(
-                  "Registration",
+                  "Register Form",
                   style: TextStyle(fontSize: 25),
                 ),
               ),
@@ -55,16 +56,19 @@ class Registration extends StatelessWidget {
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         hintText: "Enter Password")),
               ),
-              Padding(padding: EdgeInsets.all(10),
-              child: ElevatedButton(
-                child: Text('Submit'),
-                onPressed: () {
-                  Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Homepage()));
-                }
-              ),
-              ),
-
+              Container(
+                padding: EdgeInsets.all(20),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50), // NEW
+                    ),
+                  child: Text('Register'),
+                  onPressed: () {
+                    Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Homepage()));
+                  }
+                ),
+                ),
             ],
           ),
         ),
