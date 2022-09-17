@@ -1,5 +1,6 @@
-import 'package:assignmnet_s_l_r/login.dart';
 import 'package:flutter/material.dart';
+
+import 'login.dart';
 
 void main(){
   runApp(Register());
@@ -15,11 +16,15 @@ class Register extends StatelessWidget{
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Text("Register", style: TextStyle(fontSize: 28),),
+                padding: const EdgeInsets.fromLTRB(30, 70, 30, 30),
+                child: Text("Sign up", style: TextStyle(fontSize: 28),),
+              ),
+              Text(
+                "Create an account, It's free",
+                style: TextStyle(fontSize: 20),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                padding: const EdgeInsets.fromLTRB(30, 50, 30, 0),
                 child: TextField(decoration: InputDecoration(
                     label: Text("Username"),
                     border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -50,19 +55,32 @@ class Register extends StatelessWidget{
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-                child: MaterialButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginChk()));
-                },
-                  color: Colors.red,
-                  textColor: Colors.white,
-                  child: Text("Sign up"),
+                child: TextField(
+                  obscuringCharacter: '*',
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      label: Text("Confirm Password"),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                      hintText: "Enter Confirm Password"
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size.fromHeight(40)),
+                  onPressed: () {},
+                  child: Text("Sign Up"),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
                 child: TextButton(
                     onPressed:(){
-
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginChk())
+                      );
                     },
                     child: const Text("Already have an account? Login")
                 ),
